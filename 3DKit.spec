@@ -2,7 +2,7 @@ Summary:	GNU 3DKit - set of libraries based on OpenGL and GNUstep
 Summary(pl):	GNU 3DKit - zestaw bibliotek opartych na OpenGL-u i GNUstepie
 Name:		3DKit
 Version:	0.3.0
-Release:	1
+Release:	2
 License:	LGPL v2
 Group:		Libraries
 Source0:	ftp://ftp.gnustep.org/pub/gnustep/libs/%{name}-%{version}.tar.gz
@@ -13,10 +13,11 @@ BuildRequires:	OpenGL-devel
 BuildRequires:	SDL-devel >= 1.1.4
 BuildRequires:	glut-devel
 BuildRequires:	gnustep-gui-devel
+BuildRequires:	perl-base
 Requires:	OpenGL
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
-%define         _prefix         /usr/lib/GNUstep
+%define         _prefix         /usr/%{_lib}/GNUstep
 %define		_noautoreqdep	libGL.so.1 libGLU.so.1
 
 %define		libcombo	gnu-gnu-gnu
@@ -25,7 +26,7 @@ BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 %define		gscpu		ix86
 %else
 # also s/alpha.*/alpha/, but we use only "alpha" arch for now
-%define		gscpu		%{_target_cpu}
+%define		gscpu		%(echo %{_target_cpu} | sed -e 's/amd64/x86_64/;s/ppc/powerpc/')
 %endif
 
 %description
@@ -45,7 +46,7 @@ do pe³nego API opisu sceny.
 Summary:	Header files for 3DKit libraries
 Summary(pl):	Pliki nag³ówkowe bibliotek 3DKit
 Group:		Development/Libraries
-Requires:	%{name} = %{version}
+Requires:	%{name} = %{version}-%{release}
 Requires:	OpenGL-devel
 Requires:	gnustep-gui-devel
 
@@ -57,7 +58,9 @@ Pliki nag³ówkowe bibliotek 3DKit.
 
 %prep
 %setup -q -n GNU%{name}
-%patch -p1
+%patch0 -p1
+
+%{__perl} -pi -e 's@X11R6/lib@X11R6/%{_lib}@' Examples/glut/GNUmakefile
 
 %build
 . %{_prefix}/System/Library/Makefiles/GNUstep.sh
@@ -116,10 +119,10 @@ rm -rf $RPM_BUILD_ROOT
 
 %files devel
 %defattr(644,root,root,755)
-%{_prefix}/System/Library/Headers/GeometryKit
-%{_prefix}/System/Library/Headers/RenderKit
-%{_prefix}/System/Library/Headers/GlutKit
-%{_prefix}/System/Library/Headers/SDLKit
+%{_prefix}/System/Library/Headers/%{libcombo}/GeometryKit
+%{_prefix}/System/Library/Headers/%{libcombo}/RenderKit
+%{_prefix}/System/Library/Headers/%{libcombo}/GlutKit
+%{_prefix}/System/Library/Headers/%{libcombo}/SDLKit
 %{_prefix}/System/Library/Libraries/%{gscpu}/%{gsos}/%{libcombo}/libGeometryKit.so
 %{_prefix}/System/Library/Libraries/%{gscpu}/%{gsos}/%{libcombo}/libRenderKit.so
 %{_prefix}/System/Library/Libraries/%{gscpu}/%{gsos}/%{libcombo}/libGlutKit.so
