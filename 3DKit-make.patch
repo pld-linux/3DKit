@@ -1,0 +1,165 @@
+--- GNU3DKit/3DKit/GeometryKit/GeometryKit/GNUmakefile.orig	2001-07-07 16:48:58.000000000 +0200
++++ GNU3DKit/3DKit/GeometryKit/GeometryKit/GNUmakefile	2003-07-29 08:28:13.000000000 +0200
+@@ -24,8 +24,8 @@
+ LIBRARY_NAME=libGeometryKit
+ libGeometryKit_HEADER_FILES_DIR=.
+ libGeometryKit_HEADER_FILES_INSTALL_DIR=/GeometryKit
+-GEOMETRYKIT_INSTALLATION_DIR=$(GNUSTEP_LOCAL_ROOT)
+-GEOMETRYKIT_INSTALL_PREFIX=$(GNUSTEP_LOCAL_ROOT)
++GEOMETRYKIT_INSTALLATION_DIR=$(GNUSTEP_INSTALLATION_DIR)
++GEOMETRYKIT_INSTALL_PREFIX=$(GNUSTEP_INSTALLATION_DIR)
+ ADDITIONAL_INCLUDE_DIRS = -I..
+ srcdir = .
+ #
+@@ -33,7 +33,7 @@
+ # Additional libraries
+ #
+ 
+-libGeometryKit_LIBRARIES_DEPEND_UPON += 
++libGeometryKit_LIBRARIES_DEPEND_UPON += -lgnustep-base
+ 
+ #
+ 
+--- GNU3DKit/3DKit/RenderKit/RenderKit/GNUmakefile.preamble.orig	2001-07-07 17:35:47.000000000 +0200
++++ GNU3DKit/3DKit/RenderKit/RenderKit/GNUmakefile.preamble	2003-07-29 08:20:40.000000000 +0200
+@@ -44,7 +44,7 @@
+ ADDITIONAL_CFLAGS +=
+ 
+ # Additional include directories the compiler should search
+-ADDITIONAL_INCLUDE_DIRS += -I../Headers
++ADDITIONAL_INCLUDE_DIRS += -I../../GeometryKit
+ 
+ # Additional LDFLAGS to pass to the linker
+ ADDITIONAL_LDFLAGS +=
+--- GNU3DKit/3DKit/RenderKit/RenderKit/GNUmakefile.orig	2001-07-15 15:00:19.000000000 +0200
++++ GNU3DKit/3DKit/RenderKit/RenderKit/GNUmakefile	2003-07-29 08:31:37.000000000 +0200
+@@ -24,8 +24,8 @@
+ LIBRARY_NAME=libRenderKit
+ libRenderKit_HEADER_FILES_DIR=.
+ libRenderKit_HEADER_FILES_INSTALL_DIR=/RenderKit
+-RENDERKIT_INSTALLATION_DIR=$(GNUSTEP_LOCAL_ROOT)
+-RENDERKIT_INSTALL_PREFIX=$(GNUSTEP_LOCAL_ROOT)
++RENDERKIT_INSTALLATION_DIR=$(GNUSTEP_INSTALLATION_DIR)
++RENDERKIT_INSTALL_PREFIX=$(GNUSTEP_INSTALLATION_DIR)
+ ADDITIONAL_INCLUDE_DIRS = -I..
+ srcdir = .
+ #
+@@ -33,7 +33,7 @@
+ # Additional libraries
+ #
+ 
+-libRenderKit_LIBRARIES_DEPEND_UPON += -lGL 
++libRenderKit_LIBRARIES_DEPEND_UPON += -lgnustep-base -L../../GeometryKit/GeometryKit/obj -lGeometryKit -L/usr/X11R6/lib -lGL -lGLU
+ 
+ #
+ 
+--- GNU3DKit/GlutKit/GNUmakefile.preamble.orig	2000-08-20 17:25:45.000000000 +0200
++++ GNU3DKit/GlutKit/GNUmakefile.preamble	2003-07-29 08:24:58.000000000 +0200
+@@ -34,7 +34,7 @@
+ #
+ 
+ # Additional flags to pass to the preprocessor
+-ADDITIONAL_CPPFLAGS += 
++ADDITIONAL_CPPFLAGS += -I../3DKit/GeometryKit -I../3DKit/RenderKit
+ 
+ # Additional flags to pass to the Objective-C compiler
+ ADDITIONAL_OBJCFLAGS +=
+--- GNU3DKit/GlutKit/GNUmakefile.orig	2000-09-23 17:49:11.000000000 +0200
++++ GNU3DKit/GlutKit/GNUmakefile	2003-07-29 08:36:47.000000000 +0200
+@@ -24,8 +24,8 @@
+ LIBRARY_NAME=libGlutKit
+ libGlutKit_HEADER_FILES_DIR=.
+ libGlutKit_HEADER_FILES_INSTALL_DIR=/GlutKit
+-GLUTKIT_INSTALLATION_DIR=$(GNUSTEP_LOCAL_ROOT)
+-GLUTKIT_INSTALL_PREFIX=$(GNUSTEP_LOCAL_ROOT)
++GLUTKIT_INSTALLATION_DIR=$(GNUSTEP_INSTALLATION_DIR)
++GLUTKIT_INSTALL_PREFIX=$(GNUSTEP_INSTALLATION_DIR)
+ ADDITIONAL_INCLUDE_DIRS = -I..
+ srcdir = .
+ #
+@@ -33,7 +33,7 @@
+ # Additional libraries
+ #
+ 
+-libGlutKit_LIBRARIES_DEPEND_UPON += -lGL -lGLU -lglut 
++libGlutKit_LIBRARIES_DEPEND_UPON += -lgnustep-base -L../3DKit/RenderKit/RenderKit/obj -lRenderKit -L/usr/X11R6/lib -lGL -lGLU -lglut 
+ 
+ #
+ 
+--- GNU3DKit/SDLKit/GNUmakefile.preamble.orig	2000-08-20 17:25:46.000000000 +0200
++++ GNU3DKit/SDLKit/GNUmakefile.preamble	2003-07-29 08:37:59.000000000 +0200
+@@ -34,7 +34,7 @@
+ #
+ 
+ # Additional flags to pass to the preprocessor
+-ADDITIONAL_CPPFLAGS += 
++ADDITIONAL_CPPFLAGS += -I../3DKit/GeometryKit -I../3DKit/RenderKit
+ 
+ # Additional flags to pass to the Objective-C compiler
+ ADDITIONAL_OBJCFLAGS +=
+--- GNU3DKit/SDLKit/GNUmakefile.orig	2000-09-23 17:49:11.000000000 +0200
++++ GNU3DKit/SDLKit/GNUmakefile	2003-07-29 08:39:11.000000000 +0200
+@@ -24,8 +24,8 @@
+ LIBRARY_NAME=libSDLKit
+ libSDLKit_HEADER_FILES_DIR=.
+ libSDLKit_HEADER_FILES_INSTALL_DIR=/SDLKit
+-SDLKIT_INSTALLATION_DIR=$(GNUSTEP_LOCAL_ROOT)
+-SDLKIT_INSTALL_PREFIX=$(GNUSTEP_LOCAL_ROOT)
++SDLKIT_INSTALLATION_DIR=$(GNUSTEP_INSTALLATION_DIR)
++SDLKIT_INSTALL_PREFIX=$(GNUSTEP_INSTALLATION_DIR)
+ ADDITIONAL_INCLUDE_DIRS = -I..
+ srcdir = .
+ #
+@@ -33,7 +33,7 @@
+ # Additional libraries
+ #
+ 
+-libSDLKit_LIBRARIES_DEPEND_UPON += -lGL -lGLU -lSDL 
++libSDLKit_LIBRARIES_DEPEND_UPON += -lgnustep-base -L../3DKit/RenderKit/RenderKit/obj -lRenderKit -L/usr/X11R6/lib -lGL -lGLU -lSDL 
+ 
+ #
+ 
+--- GNU3DKit/Examples/glut/GNUmakefile.preamble.orig	2001-01-18 14:07:39.000000000 +0100
++++ GNU3DKit/Examples/glut/GNUmakefile.preamble	2003-07-29 08:52:38.000000000 +0200
+@@ -36,7 +36,7 @@
+ #
+ 
+ # Additional flags to pass to the preprocessor
+-ADDITIONAL_CPPFLAGS += 
++ADDITIONAL_CPPFLAGS += -I../../3DKit/GeometryKit -I../../3DKit/RenderKit -I../..
+ 
+ # Additional flags to pass to the Objective-C compiler
+ ADDITIONAL_OBJCFLAGS += -D__RKUSEOPENAL__ -D__RKUSEAPPKIT__
+--- GNU3DKit/Examples/glut/GNUmakefile.orig	2001-07-15 17:40:58.000000000 +0200
++++ GNU3DKit/Examples/glut/GNUmakefile	2003-07-29 18:24:25.000000000 +0200
+@@ -45,7 +45,7 @@
+ 	G3DWaterSurface.m	\
+ 	GlutDemo.m
+ 
+-GlutDemo_TOOL_LIBS += -lGeometryKit -lRenderKit -lGlutKit -lglut -L/usr/X11R6/lib -lXmu  -lXi -lXext -lX11
++GlutDemo_TOOL_LIBS += -L../../3DKit/GeometryKit/GeometryKit/obj -lGeometryKit -L../../3DKit/RenderKit/RenderKit/obj -lRenderKit -L../../GlutKit/obj -lGlutKit -lglut -L/usr/X11R6/lib -lXmu  -lXi -lXext -lX11
+ 
+ -include GNUmakefile.preamble
+ 
+--- GNU3DKit/Examples/SDL/GNUmakefile.preamble.orig	2001-01-18 14:05:01.000000000 +0100
++++ GNU3DKit/Examples/SDL/GNUmakefile.preamble	2003-07-29 18:26:23.000000000 +0200
+@@ -36,7 +36,7 @@
+ #
+ 
+ # Additional flags to pass to the preprocessor
+-ADDITIONAL_CPPFLAGS += 
++ADDITIONAL_CPPFLAGS += -I../../3DKit/GeometryKit -I../../3DKit/RenderKit -I../..
+ 
+ # Additional flags to pass to the Objective-C compiler
+ ADDITIONAL_OBJCFLAGS += -D__RKUSEOPENAL__ -D__RKUSEAPPKIT__
+--- GNU3DKit/Examples/SDL/GNUmakefile.orig	2001-07-15 16:03:37.000000000 +0200
++++ GNU3DKit/Examples/SDL/GNUmakefile	2003-07-29 18:27:22.000000000 +0200
+@@ -46,7 +46,7 @@
+ 	G3DVtxArray+ASEExtensions.m	\
+ 	ASEViewer.m
+ 
+-ASEViewer_TOOL_LIBS += -lGeometryKit -lRenderKit -lSDLKit -lSDL 
++ASEViewer_TOOL_LIBS += -L../../3DKit/GeometryKit/GeometryKit/obj -lGeometryKit -L../../3DKit/RenderKit/RenderKit/obj -lRenderKit -L../../SDLKit/obj -lSDLKit -lSDL 
+ 
+ -include GNUmakefile.preamble
+ 
