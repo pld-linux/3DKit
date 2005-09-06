@@ -2,7 +2,7 @@ Summary:	GNU 3DKit - set of libraries based on OpenGL and GNUstep
 Summary(pl):	GNU 3DKit - zestaw bibliotek opartych na OpenGL-u i GNUstepie
 Name:		3DKit
 Version:	0.3.0
-Release:	3
+Release:	4
 License:	LGPL v2
 Group:		Libraries
 Source0:	ftp://ftp.gnustep.org/pub/gnustep/libs/%{name}-%{version}.tar.gz
