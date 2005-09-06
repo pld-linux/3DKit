@@ -163,3 +163,63 @@
  
  -include GNUmakefile.preamble
  
+
+diff -urNbB GNU3DKit.org/3DKit/GeometryKit/GNUmakefile GNU3DKit/3DKit/GeometryKit/GNUmakefile
+--- GNU3DKit.org/3DKit/GeometryKit/GNUmakefile	2000-11-03 18:01:20.000000000 +0100
++++ GNU3DKit/3DKit/GeometryKit/GNUmakefile	2005-09-06 22:42:10.281857512 +0200
+@@ -26,8 +26,6 @@
+ # Install into the system root by default
+ #GNUSTEP_INSTALLATION_DIR = $(GNUSTEP_SYSTEM_ROOT)
+ 
+-GNUSTEP_MAKEFILES = $(GNUSTEP_SYSTEM_ROOT)/Makefiles
+-
+ include $(GNUSTEP_MAKEFILES)/common.make
+ 
+ include ./GeometryKit/Version
+diff -urNbB GNU3DKit.org/3DKit/GNUmakefile GNU3DKit/3DKit/GNUmakefile
+--- GNU3DKit.org/3DKit/GNUmakefile	2001-07-15 15:14:20.000000000 +0200
++++ GNU3DKit/3DKit/GNUmakefile	2005-09-06 22:41:26.487515264 +0200
+@@ -25,8 +25,6 @@
+ # Install into the system root by default
+ GNUSTEP_INSTALLATION_DIR = $(GNUSTEP_SYSTEM_ROOT)
+ 
+-GNUSTEP_MAKEFILES = $(GNUSTEP_SYSTEM_ROOT)/Makefiles
+-
+ include $(GNUSTEP_MAKEFILES)/common.make
+ 
+ include ./Version
+diff -urNbB GNU3DKit.org/3DKit/RenderKit/GNUmakefile GNU3DKit/3DKit/RenderKit/GNUmakefile
+--- GNU3DKit.org/3DKit/RenderKit/GNUmakefile	2000-09-23 16:49:03.000000000 +0200
++++ GNU3DKit/3DKit/RenderKit/GNUmakefile	2005-09-06 22:43:28.873909704 +0200
+@@ -25,7 +25,6 @@
+ 
+ # Install into the system root by default
+ GNUSTEP_INSTALLATION_DIR = $(GNUSTEP_SYSTEM_ROOT)
+-GNUSTEP_MAKEFILES = $(GNUSTEP_SYSTEM_ROOT)/Makefiles
+ 
+ include $(GNUSTEP_MAKEFILES)/common.make
+ 
+diff -urNbB GNU3DKit.org/Examples/glut/GNUmakefile GNU3DKit/Examples/glut/GNUmakefile
+--- GNU3DKit.org/Examples/glut/GNUmakefile	2001-07-15 17:40:58.000000000 +0200
++++ GNU3DKit/Examples/glut/GNUmakefile	2005-09-06 22:46:47.654690432 +0200
+@@ -30,8 +30,6 @@
+ 
+ GNUSTEP_INSTALLATION_DIR = $(GNUSTEP_SYSTEM_ROOT)
+ 
+-GNUSTEP_MAKEFILES = $(GNUSTEP_SYSTEM_ROOT)/Makefiles
+-
+ include $(GNUSTEP_MAKEFILES)/common.make
+ 
+ # The applications to be compiled
+diff -urNbB GNU3DKit.org/Examples/SDL/GNUmakefile GNU3DKit/Examples/SDL/GNUmakefile
+--- GNU3DKit.org/Examples/SDL/GNUmakefile	2001-07-15 16:03:37.000000000 +0200
++++ GNU3DKit/Examples/SDL/GNUmakefile	2005-09-06 22:46:57.012267864 +0200
+@@ -30,8 +30,6 @@
+ 
+ GNUSTEP_INSTALLATION_DIR = $(GNUSTEP_SYSTEM_ROOT)
+ 
+-GNUSTEP_MAKEFILES = $(GNUSTEP_SYSTEM_ROOT)/Makefiles
+-
+ include $(GNUSTEP_MAKEFILES)/common.make
+ 
+ # The applications to be compiled
