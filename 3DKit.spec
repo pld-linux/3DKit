@@ -88,7 +88,7 @@ sed -i -e 's@X11R6/lib@X11R6/%{_lib}@' Examples/glut/GNUmakefile
 rm -rf $RPM_BUILD_ROOT
 . %{_prefix}/System/Library/Makefiles/GNUstep.sh
 
-%{__make} install -C 3DKit \
+%{__make} -j1 install -C 3DKit \
 	GNUSTEP_INSTALLATION_DIR=$RPM_BUILD_ROOT%{_prefix}/System
 
 %{__make} install -C GlutKit \
