@@ -8,7 +8,7 @@ Group:		Libraries
 Source0:	ftp://ftp.gnustep.org/pub/gnustep/libs/%{name}-%{version}.tar.gz
 # Source0-md5:	3606ad885ab12893c596e4c8951d019c
 Patch0:		%{name}-make.patch
-URL:		http://www.fsf.org/software/gnu3dkit/gnu3dkit.html
+URL:		http://www.gnu.org/software/gnu3dkit/gnu3dkit.html
 BuildRequires:	OpenGL-devel
 BuildRequires:	SDL-devel >= 1.1.4
 BuildRequires:	glut-devel
