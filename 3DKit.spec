@@ -1,5 +1,5 @@
 Summary:	GNU 3DKit - set of libraries based on OpenGL and GNUstep
-Summary(pl):	GNU 3DKit - zestaw bibliotek opartych na OpenGL-u i GNUstepie
+Summary(pl.UTF-8):   GNU 3DKit - zestaw bibliotek opartych na OpenGL-u i GNUstepie
 Name:		3DKit
 Version:	0.3.0
 Release:	5
@@ -35,16 +35,16 @@ libraries that help writing 3D software, based on OpenGL/Mesa and
 GNUstep. The libraries consist of everything from vector geometry
 classes, such as matrices and vectors, to a complete scenegraph API.
 
-%description -l pl
-To jest GNU 3DKit - zestaw bibliotek Objective-C ogÛlnego
-przeznaczenia maj±cych pomÛc przy pisaniu oprogramowania 3D. Jest
-oparty na OpenGL-u/Mesie oraz GNUstepie. Biblioteki zawieraj±
+%description -l pl.UTF-8
+To jest GNU 3DKit - zestaw bibliotek Objective-C og√≥lnego
+przeznaczenia majƒÖcych pom√≥c przy pisaniu oprogramowania 3D. Jest
+oparty na OpenGL-u/Mesie oraz GNUstepie. Biblioteki zawierajƒÖ
 wszystko od klas geometrii wektorowej, takich jak macierze i wektory,
-do pe≥nego API opisu sceny.
+do pe≈Çnego API opisu sceny.
 
 %package devel
 Summary:	Header files for 3DKit libraries
-Summary(pl):	Pliki nag≥Ûwkowe bibliotek 3DKit
+Summary(pl.UTF-8):   Pliki nag≈Ç√≥wkowe bibliotek 3DKit
 Group:		Development/Libraries
 Requires:	%{name} = %{version}-%{release}
 Requires:	OpenGL-devel
@@ -53,8 +53,8 @@ Requires:	gnustep-gui-devel
 %description devel
 Header files for 3DKit libraries.
 
-%description devel -l pl
-Pliki nag≥Ûwkowe bibliotek 3DKit.
+%description devel -l pl.UTF-8
+Pliki nag≈Ç√≥wkowe bibliotek 3DKit.
 
 %prep
 %setup -q -n GNU%{name}
