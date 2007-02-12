@@ -1,5 +1,5 @@
 Summary:	GNU 3DKit - set of libraries based on OpenGL and GNUstep
-Summary(pl.UTF-8):   GNU 3DKit - zestaw bibliotek opartych na OpenGL-u i GNUstepie
+Summary(pl.UTF-8):	GNU 3DKit - zestaw bibliotek opartych na OpenGL-u i GNUstepie
 Name:		3DKit
 Version:	0.3.0
 Release:	5
@@ -44,7 +44,7 @@ do pełnego API opisu sceny.
 
 %package devel
 Summary:	Header files for 3DKit libraries
-Summary(pl.UTF-8):   Pliki nagłówkowe bibliotek 3DKit
+Summary(pl.UTF-8):	Pliki nagłówkowe bibliotek 3DKit
 Group:		Development/Libraries
 Requires:	%{name} = %{version}-%{release}
 Requires:	OpenGL-devel
